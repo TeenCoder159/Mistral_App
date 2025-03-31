@@ -1,7 +1,24 @@
-# Tauri + Vanilla
+# Mistral Chat app
+## An app built in rust to talk with mistral AI
 
-This template should help get you started developing with Tauri in vanilla HTML, CSS and Javascript.
+### Usage:
+Clone down the repositiory, set your mistral api key as an environment variable with:
+```
+export MISTRAL_API_KEY="YourKeyHere"
+```
+Then run `cargo tauri dev`
 
-## Recommended IDE Setup
+Thats it!
 
-- [VS Code](https://code.visualstudio.com/) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+---
+
+### Prerequisites for usage:
+Tauri has to be installed from cargo:
+```
+cargo install create-tauri-app
+```
+
+Rust (and cargo) has to be installed:
+See https://www.rust-lang.org/tools/install for installation guide
+
+That should be about it!

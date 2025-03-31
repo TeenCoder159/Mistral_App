@@ -3,18 +3,21 @@ const { invoke } = window.__TAURI__.core;
 let greetInputEl;
 let greetMsgEl;
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
-  greetMsgEl.textContent = await invoke("get", {
-    input: greetInputEl.value,
-  });
+async function getResponse() {
+  if (greetInputEl.value != "") {
+    greetMsgEl.innerHTML = await invoke("get", {
+      input: greetInputEl.value,
+    });
+  } else {
+    return "Please provide an input";
+  }
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
+  greetInputEl = document.querySelector("#prompt-input");
+  greetMsgEl = document.querySelector("#output-msg");
+  document.querySelector("#input-form").addEventListener("submit", (e) => {
     e.preventDefault();
-    greet();
+    getResponse();
   });
 });

@@ -1,3 +1,4 @@
+use comrak::{markdown_to_html, Options};
 use serde_json::Value;
 
 #[tauri::command]
@@ -36,7 +37,9 @@ async fn get(input: String) -> String {
         }
         None => "Sorry, I couldn't generate a response.".to_string(),
     };
-    message
+
+    markdown_to_html(message.as_str(), &Options::default())
+    //return message;
 }
 
 // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
